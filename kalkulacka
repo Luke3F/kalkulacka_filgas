@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double num1, num2;
+    int choice;
+
+    printf("Vitejte v kalkulacce!\n");
+    printf("Zadejte prvni cislo: ");
+    scanf("%lf", &num1);
+    printf("Zadejte druhe cislo: ");
+    scanf("%lf", &num2);
+
+    printf("\nJakou operaci chcete provest?\n");
+    printf("1. Soucet\n");
+    printf("2. Rozdil\n");
+    printf("3. Soucin\n");
+    printf("4. Podil\n");
+    printf("5. Umocneni prvniho cisla druhym\n");
+    printf("6. Zbytek pri deleni (modulo)\n");
+    printf("Zadejte cislo odpovidajici operaci (1-6): ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            printf("Vysledek: %.2f + %.2f = %.2f\n", num1, num2, num1 + num2);
+        break;
+        case 2:
+            printf("Vysledek: %.2f - %.2f = %.2f\n", num1, num2, num1 - num2);
+        break;
+        case 3:
+            printf("Vysledek: %.2f * %.2f = %.2f\n", num1, num2, num1 * num2);
+        break;
+        case 4:
+            if (num2 != 0)
+                printf("Vysledek: %.2f / %.2f = %.2f\n", num1, num2, num1 / num2);
+            else
+                printf("Chyba: delení nulou neni povoleno.\n");
+        break;
+        case 5:
+            printf("Vysledek: %.2f ^ %.2f = %.2f\n", num1, num2, pow(num1, num2));
+        break;
+        case 6:
+            if ((int)num2 != 0)
+                printf("Vysledek: %.0f %% %.0f = %.0f\n", num1, num2, fmod(num1, num2));
+            else
+                printf("Chyba: delení nulou neni povoleno.\n");
+        break;
+        default:
+            printf("Neplatna volba, zkuste to znovu.\n");
+    }
+
+    return 0;
+}
